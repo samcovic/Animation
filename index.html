@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment - Animation</title>
+
+    <style>
+
+        body {
+            background-color: #050210;
+        }
+
+        .box {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 70px auto;
+        }
+
+        .circle-1 {
+            width: 350px;
+            height: 350px;
+            margin: 70px auto;
+            border-radius: 50%;
+            background: linear-gradient( #fb5dad, #55fb9f, #b97aff);
+            animation: circle-animation 1s linear infinite;
+            
+        }
+
+        .circle-2 {
+            position: absolute;
+            top: 15px;
+            left: 40px;
+            width: 320px;
+            height: 320px;
+            background-color: #050210;
+            border-radius: 50%;
+            animation: circle-inside 1s ease-out infinite;
+        }
+
+        .circle-1::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            border-radius: 50%;
+            background-color: #050210;
+            filter: brightness(40%);
+        }
+
+        .circle-1::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            bottom: -20px;
+            left: -20px;
+            right: -20px;
+            border-radius: 50%;
+            background: linear-gradient( #fb5dad, #55fb9f, #b97aff);
+            filter: blur(40px) opacity(0.6);
+        }
+
+        @keyframes circle-animation {
+            from {
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes circle-inside {
+            from {
+                transform: scale(0, 0);
+            }
+            to {
+                transform: scale(0.9, 0.9);
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="box">
+    <div class="circle-1"></div>
+    <div class="circle-2"></div>
+    </div>
+</body>
+</html>
